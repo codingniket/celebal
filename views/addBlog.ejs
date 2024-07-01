@@ -8,11 +8,7 @@
 		<%- include('partials/nav') %>
 		<div class="container mt-5">
 			<h1 class="mb-4">Add New Blog Post</h1>
-			<form
-				action="/blog"
-				method="POST"
-				enctype="multipart/form-data"
-			>
+			<form action="/blog" method="POST">
 				<div class="form-group mt-3">
 					<label for="title">Title:</label>
 					<input
@@ -25,16 +21,19 @@
 				</div>
 				<div class="form-group mt-3">
 					<label for="coverImageUrl"
-						>Image:</label
+						>Image URL:</label
 					>
 					<input
-						type="file"
-						class="form-control-file"
+						type="text"
+						class="form-control"
+						id="coverImageUrl"
 						name="coverImageUrl"
+						placeholder="Enter the URL of the image"
+						required
 					/>
 				</div>
 				<div class="form-group">
-					<label for="text">Text:</label>
+					<label for="body">Text:</label>
 					<textarea
 						class="form-control"
 						id="body"
