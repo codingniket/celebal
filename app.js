@@ -5,7 +5,7 @@ const mongoose = require('./database'); // Ensure this path is correct
 const app = express();
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const {
 	checkAuthCookie,
 } = require('./middlewares/authentication'); // Correct import
