@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('partials/head') %>
+		<title>Homepage</title>
+		<style>
+			.card-img-top {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<%- include('partials/nav') %>
+
+		<div class="container mt-3">
+			<div
+				class="row row-cols-1 row-cols-md-4 g-4"
+			>
+				<% if (blogs.length > 0) { %> <%
+				blogs.forEach(blog => { %>
+				<div class="col">
+					<div class="card h-100">
+						<img
+							src="<%= blog.coverImageUrl %>"
+							class="card-img-top"
+							alt="Cover Image"
+						/>
+						<div class="card-body">
+							<h5 class="card-title">
+								<%= blog.title %>
+							</h5>
+							<div class="mb-3 text-info">
+								<h7><%= blog.tags %></h7>
+							</div>
+							<a
+								href="/blog/<%= blog._id %>"
+								class="btn btn-primary"
+								>Read More</a
+							>
+						</div>
+					</div>
+				</div>
+				<% }); %> <% } else { %>
+				<div class="col-12">
+					<div
+						class="alert alert-warning"
+						role="alert"
+					>
+						No blogs found matching your search
+						criteria.
+					</div>
+				</div>
+				<% } %>
+			</div>
+		</div>
+
+		<%- include('partials/script') %>
+	</body>
+</html>
